@@ -1,0 +1,13 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             xmlns:prism="clr-namespace:Prism.Mvvm;assembly=Prism.Forms"
+             prism:ViewModelLocator.AutowireViewModel="True"
+             x:Class="RealmApp.Views.EditPage">
+    <StackLayout>
+        <Entry Text="{Binding Name}" Placeholder="Nome"/>
+        <Entry Text="{Binding Address}" Placeholder="Endereco"/>
+        <Button Command="{Binding SaveCommand}" Text="Salvar"/>
+        <Button Command="{Binding DeleteCommand}" Text="Excluir"/>
+    </StackLayout>
+</ContentPage>

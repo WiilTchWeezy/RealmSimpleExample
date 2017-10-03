@@ -20,10 +20,12 @@ namespace RealmApp.ViewModels
             {
                 if (SetProperty(ref _selectedEnterprise, value))
                 {
-                    var navParams = new NavigationParameters();
-                    navParams.Add("selectedEnterprise", value);
-                    _navigationService.NavigateAsync("EditPage", navParams);
-
+                    if (value != null)
+                    {
+                        var navParams = new NavigationParameters();
+                        navParams.Add("selectedEnterprise", value);
+                        _navigationService.NavigateAsync("EditPage", navParams);
+                    }
                 }
             }
         }
@@ -33,12 +35,14 @@ namespace RealmApp.ViewModels
         public ListPageViewModel(INavigationService navigationService)
         {
             Enterprises = new ObservableCollection<Realm.Enterprise>();
+            _navigationService = navigationService;
         }
 
         private async Task LoadDataAsync()
         {
             var RealmDb = Realms.Realm.GetInstance();
             var listaFuncionarios = RealmDb.All<Realm.Enterprise>();
+            Enterprises.Clear();
             foreach (var item in listaFuncionarios)
             {
                 Enterprises.Add(item);

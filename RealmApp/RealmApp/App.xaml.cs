@@ -21,6 +21,7 @@ namespace RealmApp
             Container.RegisterTypeForNavigation<MainPage>();
             Container.RegisterTypeForNavigation<CreatePage>();
             Container.RegisterTypeForNavigation<ListPage>();
+            Container.RegisterTypeForNavigation<EditPage>();
         }
     }
 }
